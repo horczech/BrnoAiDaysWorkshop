@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BrnoAiDaysWorkshop.Evaluation\BrnoAiDaysWorkshop.Evaluation.csproj" />
     <ProjectReference Include="..\BrnoAiDaysWorkshop.Training\BrnoAiDaysWorkshop.Training.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="data\**" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-
 </Project>
