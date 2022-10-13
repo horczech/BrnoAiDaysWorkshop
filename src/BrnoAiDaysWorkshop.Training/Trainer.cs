@@ -1,5 +1,8 @@
-﻿using Microsoft.ML;
+﻿using System.Drawing;
+using Microsoft.ML;
+using Microsoft.ML.Transforms;
 using Microsoft.ML.Vision;
+using OpenCvSharp;
 
 namespace BrnoAiDaysWorkshop.Training;
 
@@ -15,12 +18,11 @@ public static class Trainer
 
         var files = Directory
             .EnumerateFiles(imagesFolder, "*", SearchOption.AllDirectories).Select(x => new FileInfo(x))
-            .Select(x => new ImageData { ImagePath = x.FullName, Label = x.Directory!.Name });
+            .Select(x => new ImageData { ImagePath = x.FullName, Label = x.Directory!.Name, Image = Cv2.ImRead(x.FullName).ToBytes() }).ToList();
         var data = mlContext.Data.LoadFromEnumerable(files);
         var shuffledData = mlContext.Data.ShuffleRows(data);
         var preprocessingPipeline = mlContext.Transforms.Conversion
-            .MapValueToKey(inputColumnName: nameof(ImageData.Label), outputColumnName: nameof(ImageData.LabelAsKey))
-            .Append(mlContext.Transforms.LoadRawImageBytes(outputColumnName: nameof(ImageData.Image), imageFolder: imagesFolder, inputColumnName: nameof(ImageData.ImagePath)));
+            .MapValueToKey(inputColumnName: nameof(ImageData.Label), outputColumnName: nameof(ImageData.LabelAsKey), keyOrdinality: ValueToKeyMappingEstimator.KeyOrdinality.ByValue);
         var preprocessedData = preprocessingPipeline.Fit(shuffledData).Transform(shuffledData);
 
         var trainSplit = mlContext.Data.TrainTestSplit(data: preprocessedData, testFraction: 0.2);
@@ -32,24 +34,30 @@ public static class Trainer
 
         var trainingPipeline = mlContext.MulticlassClassification.Trainers
             .ImageClassification(CreateOptions(validationSet))
-            .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
+            .Append(mlContext.Transforms.Conversion.MapKeyToValue(nameof(PredictionModel.PredictedLabel)));
+
         var trainedModel = trainingPipeline.Fit(trainSet);
+
+        var predictionEngine = mlContext.Model.CreatePredictionEngine<ImageData, PredictionModel>(trainedModel);
+        foreach (var imageData in files) {
+            var predictionModel = predictionEngine.Predict(imageData);
+            Console.WriteLine($"File: {imageData.ImagePath} -> {(predictionModel.PredictedLabel == imageData.Label ? "Correct" : "Wrong!!!")}");
+        }
 
         mlContext.Model.Save(trainedModel, preprocessedData.Schema, TrainedModelPath);
         return (new FileInfo(TrainedModelPath), testSet);
     }
 
-    private static ImageClassificationTrainer.Options CreateOptions(IDataView validationSet) {
-        return new ImageClassificationTrainer.Options
+    private static ImageClassificationTrainer.Options CreateOptions(IDataView validationSet) =>
+        new ImageClassificationTrainer.Options()
         {
             FeatureColumnName = nameof(ImageData.Image),
-            LabelColumnName = nameof(ImageData.LabelAsKey),
-            ValidationSet = validationSet,
+            LabelColumnName = "LabelAsKey",
             Arch = ImageClassificationTrainer.Architecture.MobilenetV2,
+            BatchSize = 8,
+            LearningRate = 0.01f,
             MetricsCallback = Console.WriteLine,
-            TestOnTrainSet = false,
-            ReuseTrainSetBottleneckCachedValues = true,
-            ReuseValidationSetBottleneckCachedValues = true
+            ValidationSet = validationSet,
+            EarlyStoppingCriteria = new ImageClassificationTrainer.EarlyStopping(0.001f, 3)
         };
-    }
 }

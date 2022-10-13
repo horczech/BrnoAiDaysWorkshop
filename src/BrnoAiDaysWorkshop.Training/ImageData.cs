@@ -6,4 +6,6 @@ public class ImageData
     public string Label { get; set; }
     public uint LabelAsKey { get; set; }
     public byte[] Image { get; set; }
+
+    public string GetFileName() => new FileInfo(ImagePath).Name;
 }
