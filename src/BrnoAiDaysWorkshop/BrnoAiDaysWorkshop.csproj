@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BrnoAiDaysWorkshop.Training\BrnoAiDaysWorkshop.Training.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="data\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
