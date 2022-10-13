@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.Training
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.TryIt", "BrnoAiDaysWorkshop.TryIt\BrnoAiDaysWorkshop.TryIt.csproj", "{9F8C4B0B-C291-4A44-8E86-FC1C24AE83AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.TryIt.MiniAPI", "BrnoAiDaysWorkshop.TryIt.MiniAPI\BrnoAiDaysWorkshop.TryIt.MiniAPI.csproj", "{39999582-0676-4BA5-AFE9-D2183DB12788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9F8C4B0B-C291-4A44-8E86-FC1C24AE83AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F8C4B0B-C291-4A44-8E86-FC1C24AE83AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F8C4B0B-C291-4A44-8E86-FC1C24AE83AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39999582-0676-4BA5-AFE9-D2183DB12788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39999582-0676-4BA5-AFE9-D2183DB12788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39999582-0676-4BA5-AFE9-D2183DB12788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39999582-0676-4BA5-AFE9-D2183DB12788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
