@@ -5,7 +5,11 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrnoAiDaysWorkshop", "BrnoAiDaysWorkshop\BrnoAiDaysWorkshop.csproj", "{9B0B9C9A-E46E-4296-A24E-FD93CED339C6}"
 EndProject
+<<<<<<< Updated upstream
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.Training", "BrnoAiDaysWorkshop.Training\BrnoAiDaysWorkshop.Training.csproj", "{4EDBFD42-4B25-4FFE-9C54-0E0913C12A64}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.Evaluation", "BrnoAiDaysWorkshop.Evaluation\BrnoAiDaysWorkshop.Evaluation.csproj", "{5499131E-699F-4899-A5AB-FE1DC6AB8BA4}"
+>>>>>>> Stashed changes
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,17 @@ Global
 		{9B0B9C9A-E46E-4296-A24E-FD93CED339C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B0B9C9A-E46E-4296-A24E-FD93CED339C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B0B9C9A-E46E-4296-A24E-FD93CED339C6}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< Updated upstream
 		{4EDBFD42-4B25-4FFE-9C54-0E0913C12A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EDBFD42-4B25-4FFE-9C54-0E0913C12A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EDBFD42-4B25-4FFE-9C54-0E0913C12A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EDBFD42-4B25-4FFE-9C54-0E0913C12A64}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{5499131E-699F-4899-A5AB-FE1DC6AB8BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5499131E-699F-4899-A5AB-FE1DC6AB8BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5499131E-699F-4899-A5AB-FE1DC6AB8BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5499131E-699F-4899-A5AB-FE1DC6AB8BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
