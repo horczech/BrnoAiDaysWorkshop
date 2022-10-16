@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BrnoAiDaysWorkshop.Evaluation\BrnoAiDaysWorkshop.Evaluation.csproj" />
     <ProjectReference Include="..\BrnoAiDaysWorkshop.Training\BrnoAiDaysWorkshop.Training.csproj" />
+    <ProjectReference Include="..\BrnoAiDaysWorkshop.Augmentation\BrnoAiDaysWorkshop.Augmentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
