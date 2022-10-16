@@ -1,6 +1,4 @@
 ﻿using OpenCvSharp;
-using static System.Net.Mime.MediaTypeNames;
-using System.Numerics;
 
 namespace BrnoAiDaysWorkshop.Augmentation
 {
