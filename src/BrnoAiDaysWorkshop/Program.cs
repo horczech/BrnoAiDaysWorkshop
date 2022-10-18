@@ -5,8 +5,8 @@ using BrnoAiDaysWorkshop.Augmentation;
 using OpenCvSharp;
 using Microsoft.ML;
 
-const string augmentedDataFolder = @"data";
-const string originalDataFolder = @"original";
+const string augmentedDataFolder = "augumented_data";
+const string originalDataFolder = "data";
 const bool generateDataset = true;
 
 Console.WriteLine("Hello, World!");

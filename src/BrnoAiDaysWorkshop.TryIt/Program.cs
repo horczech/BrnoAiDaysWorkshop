@@ -1,4 +1,5 @@
-﻿using BrnoAiDaysWorkshop.Training;
+﻿using BrnoAiDaysWorkshop;
+using BrnoAiDaysWorkshop.Training;
 using Microsoft.ML;
 using OpenCvSharp;
 
@@ -9,7 +10,7 @@ if (!File.Exists(modelPath)) {
     return;
 }
 var model = mlContext.Model.Load(modelPath, out _);
-var predictionEngine = mlContext.Model.CreatePredictionEngine<ImageData, PredictionModel>(model);
+var predictionEngine = mlContext.Model.CreatePredictionEngine<InputImageData, PredictionModel>(model);
 
 AskForInput();
 string? filePath;
@@ -33,7 +34,7 @@ while ((filePath = Console.ReadLine()) != "exit") {
             continue;
         }
 
-        var imageData = new ImageData { ImagePath = fileInfo.FullName, Image = Cv2.ImRead(fileInfo.FullName).ToBytes()};
+        var imageData = new InputImageData { ImagePath = fileInfo.FullName};
         var prediction = predictionEngine.Predict(imageData);
         Console.WriteLine($"Image: {imageData.GetFileName()} | Predicted Value: {prediction.PredictedLabel}");
     }

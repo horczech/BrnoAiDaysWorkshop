@@ -1,6 +1,5 @@
-using BrnoAiDaysWorkshop.Training;
+using BrnoAiDaysWorkshop;
 using Microsoft.Extensions.ML;
-using OpenCvSharp;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddPredictionEnginePool<ImageData, PredictionModel>().FromFile($"{builder.Environment.ContentRootPath}..\\BrnoAiDaysWorkshop\\bin\\Debug\\net6.0\\model\\trained_model");
+builder.Services.AddPredictionEnginePool<InputImageData, PredictionModel>().FromFile($"{builder.Environment.ContentRootPath}..\\BrnoAiDaysWorkshop\\bin\\Debug\\net6.0\\model\\trained_model");
 
 var app = builder.Build();
 
@@ -22,10 +21,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapPost(
     "evaluate/{filePath:required}",
-    (string filePath, PredictionEnginePool<ImageData, PredictionModel> enginePool) =>
+    (string filePath, PredictionEnginePool<InputImageData, PredictionModel> enginePool) =>
     {
         var predictionEngine = enginePool.GetPredictionEngine();
-        var predict = predictionEngine.Predict(new ImageData() { Image = Cv2.ImRead(filePath.Trim('"')).ToBytes() });
+        var predict = predictionEngine.Predict(new InputImageData() { ImagePath = filePath.Trim('"') });
         return predict.PredictedLabel;
     });
 
