@@ -17,9 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrnoAiDaysWorkshop.Augmenta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrnoAiDaysWorkshop.AutoML", "BrnoAiDaysWorkshop.AutoML\BrnoAiDaysWorkshop.AutoML.csproj", "{94417DBF-9206-4C22-B9A1-21C657635F2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.Intro", "BrnoAiDaysWorkshop.Intro\BrnoAiDaysWorkshop.Intro.csproj", "{334D7CFF-D37E-4F9B-8FC9-E709867619EE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrnoAiDaysWorkshop.TransferLearning", "BrnoAiDaysWorkshop.TransferLearning\BrnoAiDaysWorkshop.TransferLearning.csproj", "{1838756A-3BF5-49C2-BCF1-67C43AE91927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrnoAiDaysWorkshop.Intro", "BrnoAiDaysWorkshop.Intro\BrnoAiDaysWorkshop.Intro.csproj", "{334D7CFF-D37E-4F9B-8FC9-E709867619EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +57,6 @@ Global
 		{334D7CFF-D37E-4F9B-8FC9-E709867619EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{334D7CFF-D37E-4F9B-8FC9-E709867619EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{334D7CFF-D37E-4F9B-8FC9-E709867619EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1838756A-3BF5-49C2-BCF1-67C43AE91927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1838756A-3BF5-49C2-BCF1-67C43AE91927}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1838756A-3BF5-49C2-BCF1-67C43AE91927}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1838756A-3BF5-49C2-BCF1-67C43AE91927}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
