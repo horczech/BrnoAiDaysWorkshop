@@ -1,33 +1,34 @@
 ﻿using Microsoft.ML;
 using Microsoft.ML.Data;
 
-namespace BrnoAiDaysWorkshop.Evaluation {
-    public static class Evaluator {
+namespace BrnoAiDaysWorkshop.Evaluation;
 
-        public static Task Evaluate(FileInfo modelPath, IDataView testSet) {
-            var mlContext = new MLContext();
+public static class Evaluator {
 
-            var trainedModel = mlContext.Model.Load(modelPath.FullName, out _);
-            var predictions = trainedModel.Transform(testSet);
+    public static void Evaluate(FileInfo modelPath, IDataView testSet) {
+        var mlContext = new MLContext();
 
-            var metrics = mlContext.MulticlassClassification.Evaluate(data: predictions, labelColumnName: "LabelAsKey", scoreColumnName: "Score");
-            PrintClassificationMetrics(metrics);
+        // todo: TASK 3a Load model from file
+        ITransformer trainedModel = null;
 
-            return Task.CompletedTask;
-        }
+        // todo: TASK 3b mass-predict testSet using Transform method on loaded model
+        IDataView predictions = null;
 
-        private static void PrintClassificationMetrics(MulticlassClassificationMetrics metrics) {
-            Console.WriteLine("\n\n");
-            Console.WriteLine($"************************************************************");
-            Console.WriteLine($"*    Evaluation metrics for trained model   ");
-            Console.WriteLine($"*-----------------------------------------------------------");
-            Console.WriteLine($"    AccuracyMacro = {metrics.MacroAccuracy:0.####}");
-            Console.WriteLine($"    AccuracyMicro = {metrics.MicroAccuracy:0.####}");
+        var metrics = mlContext.MulticlassClassification.Evaluate(data: predictions, labelColumnName: "LabelAsKey", scoreColumnName: "Score");
+        PrintClassificationMetrics(metrics);
+    }
 
-            Console.WriteLine("\n\n");
-            Console.WriteLine("Confusion matrix: \n");
-            Console.WriteLine(metrics.ConfusionMatrix.GetFormattedConfusionTable());
-            Console.WriteLine($"************************************************************");
-        }
+    private static void PrintClassificationMetrics(MulticlassClassificationMetrics metrics) {
+        Console.WriteLine("\n\n");
+        Console.WriteLine($"************************************************************");
+        Console.WriteLine($"*    Evaluation metrics for trained model   ");
+        Console.WriteLine($"*-----------------------------------------------------------");
+        Console.WriteLine($"    AccuracyMacro = {metrics.MacroAccuracy:0.####}");
+        Console.WriteLine($"    AccuracyMicro = {metrics.MicroAccuracy:0.####}");
+
+        Console.WriteLine("\n\n");
+        Console.WriteLine("Confusion matrix: \n");
+        Console.WriteLine(metrics.ConfusionMatrix.GetFormattedConfusionTable());
+        Console.WriteLine($"************************************************************");
     }
 }

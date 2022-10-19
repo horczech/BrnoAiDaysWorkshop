@@ -9,7 +9,9 @@ namespace BrnoAiDaysWorkshop.Training
 
             var files = LoadImagePaths(imageFolder);
             var data = mlContext.Data.LoadFromEnumerable(files);
-            var shuffledData = mlContext.Data.ShuffleRows(data);
+
+            // todo: TASK 0 Shuffle data and save to shuffledData local variable
+            var shuffledData = data;
 
             return shuffledData;
         }
@@ -23,7 +25,7 @@ namespace BrnoAiDaysWorkshop.Training
                     continue;
 
                 var label = file.Directory!.Name;
-                images.Add(new InputImageData { ImagePath = $"{file.Directory.Name}\\{file.Name}", Label = label });
+                images.Add(new InputImageData { ImagePath = Path.Combine(file.Directory.Name, file.Name), Label = label });
             }
 
             return images;

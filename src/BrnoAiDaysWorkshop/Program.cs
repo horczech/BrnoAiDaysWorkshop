@@ -2,17 +2,16 @@
 using BrnoAiDaysWorkshop.Evaluation;
 using BrnoAiDaysWorkshop.Training;
 using BrnoAiDaysWorkshop.Augmentation;
-using OpenCvSharp;
 using Microsoft.ML;
 
 const string augmentedDataFolder = "augumented_data";
 const string originalDataFolder = "data";
-const bool generateDataset = true;
+const bool generateDataset = false;
 
 Console.WriteLine("Hello, World!");
 var mlContext = new MLContext();
 
-//STEP 1: Expand dataset
+//todo: TASK 4: Expand dataset
 if (generateDataset) {
     Console.WriteLine("Clearing augmented data folder!");
     if (Directory.Exists(augmentedDataFolder))
@@ -30,21 +29,22 @@ if (generateDataset) {
     Console.WriteLine("Augmentation data generated!");
 }
 
-//STEP 2: Load dataset
+//Load dataset
 var dataset = DatasetLoader.LoadImages(augmentedDataFolder);
-var splitDataset = mlContext.Data.TrainTestSplit(dataset, 0.2);
+// todo: TASK 1 split dataset into Train (80%) and Test(20%), save it into splitDataset local variable
+dynamic? splitDataset = null;
 
-//STEP 3: Train model
+//Train model
 Console.WriteLine("Model Training!");
 var trainedModelPath = Trainer.Train(splitDataset.TrainSet, augmentedDataFolder);
 Console.WriteLine("Model Trained!");
 
-//STEP 4: Evaluate model
+//Evaluate model
 Console.WriteLine("Model Evaluation!");
 Evaluator.Evaluate(trainedModelPath, splitDataset.TestSet);
 Console.WriteLine("Model Evaluated!");
 
-//STEP 5: Enjoy your model
+//Enjoy your model
 Console.WriteLine("Bye, World!");
 
 

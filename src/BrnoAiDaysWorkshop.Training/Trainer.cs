@@ -14,11 +14,13 @@ public static class Trainer
         Directory.CreateDirectory(ModelFolder);
         var mlContext = new MLContext();
 
+        // todo: TASK 2a Fill Input and Output column in value-key mapping
         var preprocessingPipeline = mlContext.Transforms.Conversion
-            .MapValueToKey(inputColumnName: "Label", outputColumnName: "LabelAsKey", keyOrdinality: ValueToKeyMappingEstimator.KeyOrdinality.ByValue)
+            .MapValueToKey("", "")
             .Append( mlContext.Transforms.LoadRawImageBytes(imageFolder: imageFolder, inputColumnName: "ImagePath", outputColumnName: "Feature"));
 
-        var preprocessedData = preprocessingPipeline.Fit(trainData).Transform(trainData);
+        // todo: TASK 2b apply preprocessing pipeline to the train data
+        IDataView preprocessedData = null;
         var validationTestSplit = mlContext.Data.TrainTestSplit(preprocessedData, testFraction: 0.5);
         var trainSet = validationTestSplit.TrainSet;
         var validationSet = validationTestSplit.TestSet;
@@ -30,21 +32,15 @@ public static class Trainer
 
         var trainedModel = preprocessingPipeline.Append(trainingPipeline).Fit(trainSet);
 
-        mlContext.Model.Save(trainedModel, preprocessedData.Schema, TrainedModelPath);
+        // todo: TASK 2d save model to the TrainedModelPath path
+
         return new FileInfo(TrainedModelPath);
 
     }
 
     private static ImageClassificationTrainer.Options CreateOptions(IDataView validationSet) =>
-        new ImageClassificationTrainer.Options()
+        new ImageClassificationTrainer.Options
         {
-            FeatureColumnName = "Feature",
-            LabelColumnName = "LabelAsKey",
-            Arch = ImageClassificationTrainer.Architecture.MobilenetV2,
-            BatchSize = 8,
-            LearningRate = 0.01f,
-            MetricsCallback = Console.WriteLine,
-            ValidationSet = validationSet,
-            EarlyStoppingCriteria = new ImageClassificationTrainer.EarlyStopping(0.001f, 3)
+            // todo: TASK 2c create training options
         };
 }
