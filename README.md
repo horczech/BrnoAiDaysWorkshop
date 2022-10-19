@@ -30,7 +30,7 @@
  
  
 ## Helpful links
- - (ML.NET documentations)[https://learn.microsoft.com/en-us/dotnet/machine-learning/]
- - (Available trainers)[https://learn.microsoft.com/en-us/dotnet/machine-learning/how-to-choose-an-ml-net-algorithm]
- - (Available transformations)[https://learn.microsoft.com/en-us/dotnet/machine-learning/resources/transforms]
- - (Sample codes)[https://github.com/dotnet/machinelearning-samples]
+ - [ML.NET documentations](https://learn.microsoft.com/en-us/dotnet/machine-learning/)
+ - [Available trainers](https://learn.microsoft.com/en-us/dotnet/machine-learning/how-to-choose-an-ml-net-algorithm)
+ - [Available transformations](https://learn.microsoft.com/en-us/dotnet/machine-learning/resources/transforms)
+ - [Sample codes](https://github.com/dotnet/machinelearning-samples)
