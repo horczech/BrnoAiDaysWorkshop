@@ -7,15 +7,15 @@ namespace BrnoAiDaysWorkshop.Augmentation
     {
         private const int NumberOfGenerationsPerOriginalImage = 10;
 
-        public static void GenerateAugmentedDataset(IEnumerable<OriginalImageData> images) {
+        public static void GenerateAugmentedDataSet(List<OriginalImageData> images) {
             var uniformRandom = new Random(42);
             var iterationCounter = 0;
             foreach (var image in images) {
-                var augmentedImage = image.Image.Clone();
-                Console.WriteLine($"Augmentation Progress: {iterationCounter++}/{images.Count()}");
-                image.Image.SaveImage($"{image.Folder}\\{image.Label}\\{image.FileName}-orig{image.FileExtension}");
+                var sourceImage = Cv2.ImRead(image.FilePath);
+                Console.WriteLine($"Augmentation Progress: {iterationCounter++}/{images.Count}");
+                sourceImage.SaveImage($"{image.Folder}\\{image.Label}\\{image.FileName}-orig{image.FileExtension}");
                 for (var i = 0; i < NumberOfGenerationsPerOriginalImage; i++) {
-                    image.Image.CopyTo(augmentedImage);
+                    var augmentedImage = sourceImage.Clone();
                     var nonZeroMultiplier = 1.0 + i % 5;
 #if VISUSAL_DEBUG
                     Cv2.ImShow("orig", augmentedImage);

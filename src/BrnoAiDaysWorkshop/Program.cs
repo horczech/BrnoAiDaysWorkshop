@@ -24,9 +24,9 @@ if (generateDataset) {
     Console.WriteLine("Generating augmented data!");
     var originalImages = Directory
         .EnumerateFiles(originalDataFolder, "*", SearchOption.AllDirectories).Select(x => new FileInfo(x))
-        .Select(x => new OriginalImageData { FileName = x.Name, FileExtension = x.Extension, Label = x.Directory!.Name, Folder = augmentedDataFolder, Image = Cv2.ImRead(x.FullName) });
+        .Select(x => new OriginalImageData { FileName = x.Name, FilePath = x.FullName, FileExtension = x.Extension, Label = x.Directory!.Name, Folder = augmentedDataFolder }).ToList();
 
-    Augmentator.GenerateAugmentedDataset(originalImages);
+    Augmentator.GenerateAugmentedDataSet(originalImages);
     Console.WriteLine("Augmentation data generated!");
 }
 
