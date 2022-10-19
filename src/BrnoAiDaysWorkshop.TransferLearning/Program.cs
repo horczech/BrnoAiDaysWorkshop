@@ -6,7 +6,7 @@ using MnistClassification;
 
 #region Paths
 var datasetFolder = PathHelper.GetAbsolutePath(@"../../../Dataset");
-var pretrainedModelPath = "../../../PretrainedModel/inception_v3_2016_08_28_frozen.pb";
+var pretrainedModelPath = "../../../PretrainedModel/frozen_model.pb";
 var trainedModelPath = "../../../TrainedModel/Model.zip";
 #endregion
 

@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LG.SciSharp.TensorFlow.Redist" Version="2.6.0" />
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
     <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="1.7.1" />
     <PackageReference Include="Microsoft.ML.TensorFlow" Version="1.7.1" />
-    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="1.15.1" />
+    <PackageReference Include="Microsoft.ML.TensorFlow.Redist" Version="0.14.0" />
+    <!--<PackageReference Include="SciSharp.TensorFlow.Redist" Version="1.15.1" />-->
   </ItemGroup>
 
   <ItemGroup>
