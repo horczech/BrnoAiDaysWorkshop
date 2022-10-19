@@ -33,17 +33,22 @@
      4. Push F5, debug should start
 
 ## Tasks
-obecny povidani
+Your task is to take advantage of your newly gained ML.NET skills and put it into practice by fixing a ML pipeline that can classify checkbox state (on/off). In the cloned repository is `BrnoAiDaysWorkshop` project with `Program.cs` where you can find the whole pipeline. The problem is that some of the lines in the pipeline are missing. The missing lines are marked as `todo TASK 0`. Your job is to solve all 4 tasks code and **MAKE THIS CODE GREAT AGAIN!**     
 
  ### Task 0 (5 min)
- When you are training ML model, its important to shuffle the input data so the model will see random class during each step of training. Use the [ML.NET documentation](https://learn.microsoft.com/en-us/dotnet/machine-learning/), and figure out how to shuffle the loaded data in the `data` variable. 
+ When you are training ML model, its important to shuffle the input data so the model will train on random order of classes. Use the [ML.NET documentation](https://learn.microsoft.com/en-us/dotnet/machine-learning/), and figure out how to shuffle the loaded data in the `data` variable. 
  
  ### Task 1 (5 min)
- When you are training a model, you want save approximately 20% of the dataset for testing. This testing data wont be used for training at all so you can use it for evauation of your model since it will be first time the model will see these data. Figure out how to split the dataset loaded in the `dataset` variable so the 80% of the data is used for training and the rest for model evaluation.
+ When you are training a model, you want save approximately 20% of the dataset for testing. This testing data wont be used for training so you can use it for model evaluation because it will be first time the model will see these data. Your task is to split the dataset loaded in the `dataset` variable so 80% of the data is used for training and the rest for model evaluation.
  
  ### Task 2 (30 min)
+ Preprocessing and training pipeline is the center point of the ML.NET universe. When you select a ML model that you want to use for your task, you have to specify several training parameters and transform the input data to a format that is expected by the ML model that is used. In this task you will have to convert the label name (on/off) into a `key` type, connect preprocessing and training pipeline, configure the trainer and save the trained model.
+  
  ### Task 3 (10 min)
+ After you train your model you only know how does the model works with the training data but you have no clue if it will work with data that were not used durint the tarining. In some cases, especially when you use huge networks with few data, the model can memorize each image instead of learning general features. In those cases the accuracy on training data is very good, but the model fails when it gets new data. In this task you have to load your model, do the predictions on `test` dataset (that was not used for training) and evaluate how well model works with new data.
+ 
  ### Task 4 (15 min)
+ Machine learning is very data hungry and you ralely have enough of data. Luckily you can use image augmentation and modify the images in your dataset and generate much more data. We have prepared for you library with various image altering methods in `BrnoAiDaysWorkshop.Augmentation\AugmentationMethods.cs`. Your task is to use some of these methods on each image to make the datasat** at least three times bigger**.
  
  
 ## Helpful links
