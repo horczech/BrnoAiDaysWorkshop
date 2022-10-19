@@ -11,11 +11,24 @@
  - Individual tasks
  - Enjoyment your trained models !
 
-//ToDo: Vasek
 ## Setup 
  - How to connect to wifi
+ 1. Connect to YSoft-Visitors wifi
+ 2. Browser with registration opens, go to Registration section
+ 3. Fill your name, your valid email where you will get confirmation code, and input vaclav.novotny@ysoft.com into fourth input.
+![YSoft Visitors registration](https://github.com/vaclavnovotny/images/blob/main/ysoftwifi.png)
+
  - Clone repository
+ 1. Open Visual Studio, click Continue without code 
+ 2. Go to menu item Git -> Clone
+ 3. Fill repository location as: https://github.com/horczech/BrnoAiDaysWorkshop.git
+ 4. Click clone.
+ 
  - Run the BrnoAiDaysWorkshop.Intro
+ 1. Open solution file **BrnoAiDaysWorkshop.sln** at cloned repository location
+ 2. Go to menu item Build -> Build Solution
+ 3. Find project BrnoAiDaysWorkshop.Intro in solution explorer, right click and hit Set as startup project
+ 4. Push F5, debug should start
 
 ## Tasks
  ### Task 0
