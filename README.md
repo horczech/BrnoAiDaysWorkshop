@@ -48,7 +48,7 @@ Your task is to take advantage of your newly gained ML.NET skills and put it int
  After you train your model you only know how does the model works with the training data but you have no clue if it will work with data that were not used durint the tarining. In some cases, especially when you use huge networks with few data, the model can memorize each image instead of learning general features. In those cases the accuracy on training data is very good, but the model fails when it gets new data. In this task you have to load your model, do the predictions on `test` dataset (that was not used for training) and evaluate how well model works with new data.
  
  ### Task 4 (15 min)
- Machine learning is very data hungry and you ralely have enough of data. Luckily you can use image augmentation and modify the images in your dataset and generate much more data. We have prepared for you library with various image altering methods in `BrnoAiDaysWorkshop.Augmentation\AugmentationMethods.cs`. Your task is to use some of these methods on each image to make the datasat** at least three times bigger**.
+ Machine learning is very data hungry and you ralely have enough of data. Luckily you can use image augmentation and modify the images in your dataset and generate much more data. We have prepared for you library with various image altering methods in `BrnoAiDaysWorkshop.Augmentation\AugmentationMethods.cs`. Your task is to use some of these methods on each image to make the datasat **at least three times bigger**.
  
  
 ## Helpful links
