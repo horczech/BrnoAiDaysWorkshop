@@ -4,12 +4,14 @@
 
 
 ## Schedule
- 1. Intro presentation
- 2. Setup of environment
- 3. ModelBuilder
- 4. Guided demonstration of ML.NET
- 5. Individual tasks
- 6. Enjoyment your trained models !
+ 1. Intro presentation (10 min)
+ 2. Setup of environment (15 min)
+ 3. ModelBuilder + AutoML (15 min)
+ 4. Guided demonstration of ML.NET (20 min)
+ 5. Individual tasks (60 min)
+ 6. Enjoy your trained models!
+     1. Try console application **BrnoAiDaysWorkshop.TryIt** 
+     2. Try web API application **BrnoAiDaysWorkshop.TryIt.MiniAPI**
 
 ## Setup 
  1. Connect to wifi. 
@@ -31,15 +33,17 @@
      4. Push F5, debug should start
 
 ## Tasks
- ### Task 0
+obecny povidani
+
+ ### Task 0 (5 min)
  When you are training ML model, its important to shuffle the input data so the model will see random class during each step of training. Use the [ML.NET documentation](https://learn.microsoft.com/en-us/dotnet/machine-learning/), and figure out how to shuffle the loaded data in the `data` variable. 
  
- ### Task 1
+ ### Task 1 (5 min)
  When you are training a model, you want save approximately 20% of the dataset for testing. This testing data wont be used for training at all so you can use it for evauation of your model since it will be first time the model will see these data. Figure out how to split the dataset loaded in the `dataset` variable so the 80% of the data is used for training and the rest for model evaluation.
  
- ### Task 2
- ### Task 3
- ### Task 4
+ ### Task 2 (30 min)
+ ### Task 3 (10 min)
+ ### Task 4 (15 min)
  
  
 ## Helpful links
