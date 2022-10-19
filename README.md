@@ -4,12 +4,12 @@
 
 
 ## Schedule
- - Intro presentation
- - Setup of environment
- - ModelBuilder
- - Guided demonstration of ML.NET
- - Individual tasks
- - Enjoyment your trained models !
+ 1. Intro presentation
+ 2. Setup of environment
+ 3. ModelBuilder
+ 4. Guided demonstration of ML.NET
+ 5. Individual tasks
+ 6. Enjoyment your trained models !
 
 ## Setup 
  1. Connect to wifi. 
