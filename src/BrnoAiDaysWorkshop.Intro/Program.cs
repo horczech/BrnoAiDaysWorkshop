@@ -10,6 +10,7 @@ var modelPath = PathHelper.GetAbsolutePath(modelRelativePath);
 #endregion
 
 var mlContext = new MLContext();
+mlContext.Log += Logger();
 
 #region STEP 1: Load Data
 
@@ -47,9 +48,10 @@ mlContext.Model.Save(trainedModel, datasetSplit.TrainSet.Schema, modelPath);
 var predictions = trainedModel.Transform(datasetSplit.TestSet);
 var metrics = mlContext.MulticlassClassification.Evaluate(data: predictions, labelColumnName: "Number", scoreColumnName: "Score");
 
-Console.WriteLine($"Evaluation metrics for trained model");
-Console.WriteLine($"AccuracyMacro = {metrics.MacroAccuracy:F4}");
-Console.WriteLine($"AccuracyMicro = {metrics.MicroAccuracy:F4}");
+Console.WriteLine("\n\n");
+Console.WriteLine($"\tEvaluation metrics for trained model:\n");
+Console.WriteLine($"\tAccuracyMacro = {metrics.MacroAccuracy:F4}");
+Console.WriteLine($"\tAccuracyMicro = {metrics.MicroAccuracy:F4}");
 Console.WriteLine(metrics.ConfusionMatrix.GetFormattedConfusionTable());
 
 #endregion
@@ -60,16 +62,24 @@ var model = mlContext.Model.Load(modelPath, out _);
 var predictionEngine = mlContext.Model.CreatePredictionEngine<InputData, OutputData>(model);
 var prediction = predictionEngine.Predict(SampleData.Num9);
 
-Console.WriteLine("\n\nPrediction scores:");
-Console.WriteLine($"0: {prediction.Score[0]:F4}");
-Console.WriteLine($"1: {prediction.Score[1]:F4}");
-Console.WriteLine($"2: {prediction.Score[2]:F4}");
-Console.WriteLine($"3: {prediction.Score[3]:F4}");
-Console.WriteLine($"4: {prediction.Score[4]:F4}");
-Console.WriteLine($"5: {prediction.Score[5]:F4}");
-Console.WriteLine($"6: {prediction.Score[6]:F4}");
-Console.WriteLine($"7: {prediction.Score[7]:F4}");
-Console.WriteLine($"8: {prediction.Score[8]:F4}");
-Console.WriteLine($"9: {prediction.Score[9]:F4}");
+Console.WriteLine("\n\n\tPrediction scores:");
+Console.WriteLine($"\t0: {prediction.Score[0]:F4}");
+Console.WriteLine($"\t1: {prediction.Score[1]:F4}");
+Console.WriteLine($"\t2: {prediction.Score[2]:F4}");
+Console.WriteLine($"\t3: {prediction.Score[3]:F4}");
+Console.WriteLine($"\t4: {prediction.Score[4]:F4}");
+Console.WriteLine($"\t5: {prediction.Score[5]:F4}");
+Console.WriteLine($"\t6: {prediction.Score[6]:F4}");
+Console.WriteLine($"\t7: {prediction.Score[7]:F4}");
+Console.WriteLine($"\t8: {prediction.Score[8]:F4}");
+Console.WriteLine($"\t9: {prediction.Score[9]:F4}");
+
+#endregion
+
+#region Loggger
+
+EventHandler<LoggingEventArgs> Logger() {
+    return (_, args) => { Console.WriteLine(args.Message); };
+}
 
 #endregion
